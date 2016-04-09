@@ -27,11 +27,11 @@ function love.update(dt)
     mario.x = mario.x - mario.velocidade
   end
 
-  if mario.y_velocidade ~= 0 then -- We're probably jumping
-    mario.y = mario.y + mario.y_velocidade * dt -- "dt" means we wont move at different speeds if the game lags
+  if mario.y_velocidade ~= 0 then -- Provavelmente pulando
+    mario.y = mario.y + mario.y_velocidade * dt -- "dt" faz com que nao movimentamos em velocidades diferentes se o jogo lagar.
     mario.y_velocidade = mario.y_velocidade - gravity * dt
 
-    if mario.y < 370 then -- We hit the ground again
+    if mario.y < 370 then -- Voltamos para o chao
       mario.y_velocidade = 0
       mario.y = 432
     end
@@ -40,7 +40,7 @@ end
 
 function love.keypressed(key, scancode, isrepeat)
   if key == "space" then
-    if mario.y_velocidade == 0 then -- We're probably on the ground, let's jump
+    if mario.y_velocidade == 0 then -- Pular
       mario.y_velocidade = jump_height
 
 
